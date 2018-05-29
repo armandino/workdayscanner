@@ -1,0 +1,71 @@
+
+package com.workday.sources;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * Wrapper element for Language Ability
+ * 
+ * <p>Java class for Language_AbilityType complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="Language_AbilityType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="Language_Ability_Data" type="{urn:com.workday/bsvc}Language_Ability_DataType" maxOccurs="unbounded"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Language_AbilityType", propOrder = {
+    "languageAbilityData"
+})
+public class LanguageAbilityType {
+
+    @XmlElement(name = "Language_Ability_Data", required = true)
+    protected List<LanguageAbilityDataType> languageAbilityData;
+
+    /**
+     * Gets the value of the languageAbilityData property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the languageAbilityData property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getLanguageAbilityData().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link LanguageAbilityDataType }
+     * 
+     * 
+     */
+    public List<LanguageAbilityDataType> getLanguageAbilityData() {
+        if (languageAbilityData == null) {
+            languageAbilityData = new ArrayList<LanguageAbilityDataType>();
+        }
+        return this.languageAbilityData;
+    }
+
+}

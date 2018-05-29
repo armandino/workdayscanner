@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:wd="urn:com.workday.report/Public_Web_Services"
+            xmlns:nyw="urn:com.netyourwork/aod"
+            elementFormDefault="qualified"
+            attributeFormDefault="qualified"
+            targetNamespace="urn:com.workday.report/Public_Web_Services">
+   <xsd:element name="Report_Data" type="wd:Report_DataType"/>
+   <xsd:element name="Run_Report" type="wd:Run_ReportType"/>
+   <xsd:simpleType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RichText">
+      <xsd:restriction base="xsd:string"/>
+   </xsd:simpleType>
+   <xsd:complexType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="InstanceType">
+      <xsd:simpleContent>
+         <xsd:extension base="xsd:string">
+            <xsd:attribute name="ID" type="xsd:string"/>
+         </xsd:extension>
+      </xsd:simpleContent>
+   </xsd:complexType>
+   <xsd:complexType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Instance_SetType">
+      <xsd:sequence>
+         <xsd:element maxOccurs="unbounded"
+                      minOccurs="0"
+                      name="Instance"
+                      type="wd:InstanceType"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="Report_EntryType">
+      <xsd:sequence>
+         <xsd:element name="Web_Service" type="wd:Instance_SetType" minOccurs="0"/>
+         <xsd:element name="Documentation" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType name="Report_DataType">
+      <xsd:sequence>
+         <xsd:element name="Report_Entry"
+                      type="wd:Report_EntryType"
+                      minOccurs="0"
+                      maxOccurs="unbounded"/>
+      </xsd:sequence>
+   </xsd:complexType>
+   <xsd:complexType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Run_ReportType">
+      <xsd:attribute name="Proxy_User_Name" type="xsd:string"/>
+   </xsd:complexType>
+</xsd:schema>

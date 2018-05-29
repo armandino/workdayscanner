@@ -1,0 +1,120 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:wd="urn:com.workday.report/Public_Web_Services"
+                  xmlns:nyw="urn:com.netyourwork/aod"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:httpbind="http://schemas.xmlsoap.org/wsdl/http/"
+                  xmlns:mimebind="http://schemas.xmlsoap.org/wsdl/mime/"
+                  name="Report"
+                  targetNamespace="urn:com.workday.report/Public_Web_Services">
+    <wsdl:documentation/>
+    <wsdl:types>
+        <xsd:schema elementFormDefault="qualified"
+                    attributeFormDefault="qualified"
+                    targetNamespace="urn:com.workday.report/Public_Web_Services">
+            <xsd:element name="Report_Data" type="wd:Report_DataType"/>
+            <xsd:element name="Run_Report" type="wd:Run_ReportType"/>
+            <xsd:simpleType name="RichText">
+                <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+            <xsd:complexType name="InstanceType">
+                <xsd:simpleContent>
+                    <xsd:extension base="xsd:string">
+                        <xsd:attribute name="ID" type="xsd:string"/>
+                    </xsd:extension>
+                </xsd:simpleContent>
+            </xsd:complexType>
+            <xsd:complexType name="Instance_SetType">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded"
+                                 minOccurs="0"
+                                 name="Instance"
+                                 type="wd:InstanceType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Report_EntryType">
+                <xsd:sequence>
+                    <xsd:element name="Web_Service" type="wd:Instance_SetType" minOccurs="0"/>
+                    <xsd:element name="Documentation" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Report_DataType">
+                <xsd:sequence>
+                    <xsd:element name="Report_Entry"
+                                 type="wd:Report_EntryType"
+                                 minOccurs="0"
+                                 maxOccurs="unbounded"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Run_ReportType">
+                <xsd:attribute name="Proxy_User_Name" type="xsd:string"/>
+            </xsd:complexType>
+            <xsd:complexType name="MoneyType">
+                <xsd:simpleContent>
+                    <xsd:extension base="xsd:decimal">
+                        <xsd:attribute name="Currency_Code" type="xsd:string"/>
+                    </xsd:extension>
+                </xsd:simpleContent>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="Run_ReportInputMsg">
+        <wsdl:part name="body" element="wd:Run_Report"/>
+    </wsdl:message>
+    <wsdl:message name="RequestMsg">
+        <wsdl:part name="Proxy_User_Name" type="xsd:string"/>
+    </wsdl:message>
+    <wsdl:message name="Report_DataOutputMsg">
+        <wsdl:part name="body" element="wd:Report_Data"/>
+    </wsdl:message>
+    <wsdl:message name="ResponseMsg">
+        <wsdl:part name="body" type="wd:Report_DataType"/>
+    </wsdl:message>
+    <wsdl:portType name="ReportPort">
+        <wsdl:documentation/>
+        <wsdl:operation name="Run_Report">
+            <wsdl:input name="Run_ReportInput" message="wd:Run_ReportInputMsg"/>
+            <wsdl:output name="Run_ReportOutput" message="wd:Report_DataOutputMsg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="ReportPortREST">
+        <wsdl:operation name="Run_Report">
+            <wsdl:input name="Run_ReportInput" message="wd:RequestMsg"/>
+            <wsdl:output name="Run_ReportOutput" message="wd:ResponseMsg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ReportBinding" type="wd:ReportPort">
+        <soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Run_Report">
+            <soapbind:operation style="document"/>
+            <wsdl:input name="Run_ReportInput">
+                <soapbind:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="Run_ReportOutput">
+                <soapbind:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ReportRESTBinding" type="wd:ReportPortREST">
+        <httpbind:binding verb="GET"/>
+        <wsdl:operation name="Run_Report">
+            <httpbind:operation location="Run_Report"/>
+            <wsdl:input>
+                <httpbind:urlEncoded/>
+            </wsdl:input>
+            <wsdl:output>
+                <mimebind:content type="text/xml" part="body"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ReportService">
+        <wsdl:port name="Report" binding="wd:ReportBinding">
+            <soapbind:address location="https://wd2-impl-services1.workday.com/ccx/service/Report/informatica_pt1/Public_Web_Services"/>
+        </wsdl:port>
+        <wsdl:port name="ReportREST" binding="wd:ReportRESTBinding">
+            <httpbind:address location="https://wd2-impl-services1.workday.com/ccx/service/systemreport/informatica_pt1/Public_Web_Services"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

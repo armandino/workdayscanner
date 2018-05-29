@@ -1,0 +1,290 @@
+{
+  "packageName": "com.infa.workday.connector",
+  "packageLabel": "Workday",
+  "packageDescription": "Workday base model.",
+  "iClasses": [
+    {
+      "name": "Service",
+      "label": "Service",
+      "description": "Represents a module in workday",
+      "isFirstClass": true,
+      "superClasses": [
+        "core.DataSource"
+      ],
+      "deprecated": false
+    },
+    {
+      "name": "Entity",
+      "label": "Entity",
+      "description": "Represents a workday resource",
+      "isFirstClass": true,
+      "superClasses": [
+        "core.DataSet"
+      ],
+      "deprecated": false
+    },
+    {
+      "name": "Operation",
+      "label": "Operation",
+      "description": "Represents a operation to fetch resource details",
+      "isFirstClass": true,
+      "superClasses": [],
+      "deprecated": false
+    },
+    {
+      "name": "Property",
+      "label": "Property",
+      "description": "Represents a property of a entity",
+      "isFirstClass": true,
+      "superClasses": [
+        "core.DataElement"
+      ],
+      "deprecated": false
+    },
+    {
+      "name": "Report",
+      "label": "Report",
+      "description": "Represents a Custom Report in workday",
+      "isFirstClass": true,
+      "superClasses": [
+        "core.DataSet"
+      ],
+      "deprecated": false
+    },
+    {
+      "name": "DataSource",
+      "label": "DataSource",
+      "description": "Represents a Data Source in workday",
+      "isFirstClass": true,
+      "superClasses": [
+        "core.DataSet"
+      ],
+      "deprecated": false
+    }
+  ],
+  "dependentPackages": [
+    "core,1"
+  ],
+  "associations": [
+    {
+      "name": "ServiceEntity",
+      "fromClass": "com.infa.workday.connector.Service",
+      "toClass": "com.infa.workday.connector.Entity",
+      "fromLabel": "Service",
+      "toLabel": "Entity",
+      "associationKinds": [
+        "core.ParentChild"
+      ],
+      "deprecated": false
+    },
+    {
+      "name": "ServiceOperation",
+      "fromClass": "com.infa.workday.connector.Service",
+      "toClass": "com.infa.workday.connector.Operation",
+      "fromLabel": "Service",
+      "toLabel": "Operation",
+      "associationKinds": [
+        "core.ParentChild"
+      ],
+      "deprecated": false
+    },
+    {
+      "name": "Entity2Entity",
+      "fromClass": "com.infa.workday.connector.Entity",
+      "toClass": "com.infa.workday.connector.Entity",
+      "fromLabel": "Entity",
+      "toLabel": "Entity",
+      "associationKinds": [
+        "core.ParentChild"
+      ],
+      "deprecated": false
+    },
+    {
+      "name": "EntityProperty",
+      "fromClass": "com.infa.workday.connector.Entity",
+      "toClass": "com.infa.workday.connector.Property",
+      "fromLabel": "Entity",
+      "toLabel": "Property",
+      "associationKinds": [
+        "core.ParentChild"
+      ],
+      "deprecated": false
+    },
+    {
+      "name": "ReportProperty",
+      "fromClass": "com.infa.workday.connector.Report",
+      "toClass": "com.infa.workday.connector.Property",
+      "fromLabel": "Report",
+      "toLabel": "Property",
+      "associationKinds": [
+        "core.ParentChild"
+      ],
+      "deprecated": false
+    },
+    {
+      "name": "DataSourceReport",
+      "fromClass": "com.infa.workday.connector.DataSource",
+      "toClass": "com.infa.workday.connector.Report",
+      "fromLabel": "DataSource",
+      "toLabel": "Report",
+      "associationKinds": [
+        "core.DataFlow"
+      ],
+      "deprecated": false
+    }
+  ],
+  "attributes": [
+    {
+      "name": "DataType",
+      "label": "DataType",
+      "dataType": "core.String",
+      "searchable": true,
+      "facetable": false,
+      "analyzer": null,
+      "boost": "LOW",
+      "description": "",
+      "multivalued": false,
+      "suggestable": false,
+      "sortable": false,
+      "visible": true,
+      "deprecated": false,
+      "derived": false
+    },
+    {
+      "name": "ReportType",
+      "label": "ReportType",
+      "dataType": "core.String",
+      "searchable": true,
+      "facetable": false,
+      "analyzer": null,
+      "boost": "LOW",
+      "description": "",
+      "multivalued": false,
+      "suggestable": false,
+      "sortable": false,
+      "visible": true,
+      "deprecated": false,
+      "derived": false
+    },
+    {
+      "name": "DataSourceType",
+      "label": "DataSourceType",
+      "dataType": "core.String",
+      "searchable": true,
+      "facetable": false,
+      "analyzer": null,
+      "boost": "LOW",
+      "description": "",
+      "multivalued": false,
+      "suggestable": false,
+      "sortable": false,
+      "visible": true,
+      "deprecated": false,
+      "derived": false
+    },
+    {
+      "name": "Category",
+      "label": "Category",
+      "dataType": "core.String",
+      "searchable": true,
+      "facetable": false,
+      "analyzer": null,
+      "boost": "LOW",
+      "description": "",
+      "multivalued": true,
+      "suggestable": false,
+      "sortable": false,
+      "visible": true,
+      "deprecated": false,
+      "derived": false
+    },
+    {
+      "name": "BusinessObject",
+      "label": "BusinessObject",
+      "dataType": "core.String",
+      "searchable": true,
+      "facetable": false,
+      "analyzer": null,
+      "boost": "LOW",
+      "description": "",
+      "multivalued": false,
+      "suggestable": false,
+      "sortable": false,
+      "visible": true,
+      "deprecated": false,
+      "derived": false
+    },
+    {
+      "name": "ReportTag",
+      "label": "ReportTag",
+      "dataType": "core.String",
+      "searchable": true,
+      "facetable": false,
+      "analyzer": null,
+      "boost": "LOW",
+      "description": "",
+      "multivalued": true,
+      "suggestable": false,
+      "sortable": false,
+      "visible": true,
+      "deprecated": false,
+      "derived": false
+    },
+    {
+      "name": "ReportOwner",
+      "label": "ReportOwner",
+      "dataType": "core.String",
+      "searchable": true,
+      "facetable": false,
+      "analyzer": null,
+      "boost": "LOW",
+      "description": "",
+      "multivalued": false,
+      "suggestable": false,
+      "sortable": false,
+      "visible": true,
+      "deprecated": false,
+      "derived": false
+    },
+    {
+      "name": "Length",
+      "label": "Length",
+      "dataType": "core.Integer",
+      "searchable": true,
+      "facetable": false,
+      "analyzer": null,
+      "boost": "LOW",
+      "description": "",
+      "multivalued": false,
+      "suggestable": false,
+      "sortable": false,
+      "visible": true,
+      "deprecated": false,
+      "derived": false
+    },
+    {
+      "name": "version",
+      "label": "version of the service",
+      "dataType": "core.String",
+      "searchable": true,
+      "facetable": false,
+      "analyzer": null,
+      "boost": "LOW",
+      "description": "",
+      "multivalued": false,
+      "suggestable": false,
+      "sortable": false,
+      "visible": true,
+      "deprecated": false,
+      "derived": false
+    }
+  ],
+  "classAttributes": [],
+  "dataTypes": [],
+  "associationKinds": [],
+  "referenceAttributes": [],
+  "referenceDatatypes": [],
+  "identity": "com.infa.workday.connector;6",
+  "version": 6,
+  "modifiedBy": ""
+}

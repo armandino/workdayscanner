@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scanner xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="scanner.xsd" id="WorkdayScanner" name="Workday Scanner"
+	description="Workday Scanner Plugin" developedBy="Informatica LLC"
+	version="1.0" minINFAVersion="1.0" canProcessPartial="false"
+	implClass="com.infa.products.ldm.scanners.workdayscanner.WorkdayScanner">
+	<resourceTypes>
+		<resourceType id="workday">
+		</resourceType>
+	</resourceTypes>
+	<providerType id="CORE" name="Source Metadata" />
+	<scannerExecutors>
+		<scannerExecutor id="WorkdayScannerExecutor"
+			implClass="com.infa.products.ldm.scanners.workdayscanner.WorkdayScannerExecutor" taskTypeId="CORE" taskTypeLabel="Metadata Load">
+		</scannerExecutor>
+	</scannerExecutors>
+	
+	<configurations>
+		<configuration>
+			<optionGroup id="Connection" name="Connection Properties"
+						 description="Connection Details">
+				<option id="Username" name="Username" description="The username for the Workday connection."
+						isMandatory="true" isMultiValued="false" isEditable="true"
+						isSensitive="false" defaultValue="" type="STRING" duplicateDetectOption="true" />
+				<option id="Password" name="Password" description="Password for the Workday connection."
+						isMandatory="true" isMultiValued="false" isEditable="true"
+						isSensitive="true" defaultValue="" type="STRING" />
+				<option id="Tenant" name="Tenant" description="Tenant(Workday Instance of the Customer) for the Workday connection."
+						isMandatory="true" isMultiValued="false" isEditable="true"
+						isSensitive="false" defaultValue="" type="STRING" />
+				<option id="WorkdayDomain" name="WorkdayDomain" description="Workday SOAP API Endpoint"
+						isMandatory="true" isMultiValued="false" isEditable="true"
+						isSensitive="false" defaultValue="https://$Workday_Domain$.workday.com" type="STRING"
+						duplicateDetectOption="true" semanticType="SERVICE_URL"/>
+				<option id="Version" name="Version" description="Version of workday api"
+						isMandatory="false" isMultiValued="false" isEditable="true"
+						isSensitive="false" defaultValue="" type="STRING" />
+			</optionGroup>
+			
+			<optionGroup id="Advanced" name="Advanced Properties" description="Advanced Properties">
+				<option id = "Memory" name="Memory" description="Specify the memory required to run the scanner job" 
+      				defaultValue="Low" isMandatory="false" type="STRING">        
+        			<optionValue name="Low" value="Low"/>                
+        			<optionValue name="Medium" value="Medium"/>               
+        			<optionValue name="High" value="High"/>              
+      			</option>
+				<option id = "CustomJVMOptions" name="JVM Options" description="Specify the custom jvm options to run the scanner job"
+						defaultValue=" " isMandatory="false" type="STRING">
+				</option>
+			</optionGroup>
+			
+		</configuration>
+	</configurations>
+	
+	<connectionEndPointConfigurations>
+		<connectionEndPointConfiguration>
+			<resourceTypes>
+				<resourceType id="workday"/>
+			</resourceTypes>
+			<connectionEndPoint objectIdPathFormat="%s://%s" classType="com.infa.ldm.adapter.Catalog"/>
+		</connectionEndPointConfiguration>
+	</connectionEndPointConfigurations>
+	
+</scanner>

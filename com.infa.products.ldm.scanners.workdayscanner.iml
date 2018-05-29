@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MAVEN_REPOSITORY$/com/infa/com.infa.products.ldm.scanners/10.2.100.338.318-SNAPSHOT/target/classes" />
+    <output-test url="file://$MAVEN_REPOSITORY$/com/infa/com.infa.products.ldm.scanners/10.2.100.338.318-SNAPSHOT/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/target/generated-sources/xjc" isTestSource="false" generated="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: wsdl4j:wsdl4j:1.6.2" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:api:1.7.2" level="project" />
+    <orderEntry type="library" name="Maven: com.infa:com.infa.products.ldm.framework.scanner-fw-api:10.2.200.10.18-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.infa:com.infa.products.ldm.ingestion.client.interface:10.2.200.10.18-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.infa:com.infa.products.ldm.framework.scanner-fw-impl:10.2.200.10.18-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.infa:com.infa.products.ldm.scanner-api:10.2.200.10.18-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.infa:com.infa.products.ldm.ingestion.common:10.2.200.10.18-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: com.infa:com.infa.products.ldm.scanner-common:10.2.200.10.18-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:4.3.11.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.3.11.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.infa:com.infa.products.ldm.framework.jobexec.common:10.2.200.10.18-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.3.2" level="project" />
+    <orderEntry type="library" name="Maven: sun:tools:1.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.restlet.jee:org.restlet:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:4.3.11.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-common:2.7.3" level="project" />
+  </component>
+</module>

@@ -1,0 +1,41 @@
+
+<jxb:bindings 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+    version="2.1">
+    <jxb:bindings schemaLocation="All_Custom_Reports.xsd">
+        <jxb:bindings node="//xs:complexType[@name='Report_DataType']">
+            <jxb:class name="Custom_Report_DataType"/>
+        </jxb:bindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="Public_Web_Services.xsd">
+        <jxb:bindings node="//xs:complexType[@name='Report_DataType']">
+            <jxb:class name="Report_DataType"/>
+        </jxb:bindings>
+    </jxb:bindings>
+
+    <jxb:bindings schemaLocation="All_Custom_Reports.xsd">
+     <jxb:bindings node="//xs:complexType[@name='Report_EntryType']">
+            <jxb:class name="Custom_Report_EntryType"/>
+        </jxb:bindings>
+    </jxb:bindings>
+    <jxb:bindings schemaLocation="Public_Web_Services.xsd">
+        <jxb:bindings node="//xs:complexType[@name='Report_EntryType']">
+            <jxb:class name="Report_EntryType"/>
+        </jxb:bindings>
+    </jxb:bindings>
+
+
+   <jxb:bindings schemaLocation="All_Custom_Reports.xsd">
+     <jxb:bindings node="//xs:complexType[@name='MoneyType']">
+            <jxb:class name="Custom_MoneyType"/>
+        </jxb:bindings>
+    </jxb:bindings>
+
+    <bindings schemaLocation="All_Custom_Reports.xsd">
+        <schemaBindings>
+          <package name="workday.wsdl.reports"/>
+        </schemaBindings>
+      </bindings>
+
+</jxb:bindings>

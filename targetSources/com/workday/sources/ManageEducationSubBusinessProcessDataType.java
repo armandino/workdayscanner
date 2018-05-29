@@ -1,0 +1,104 @@
+
+package com.workday.sources;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+
+/**
+ * Manage Education Sub Business Process Data
+ * 
+ * <p>Java class for Manage_Education_Sub_Business_Process_DataType complex type.
+ * 
+ * <p>The following schema fragment specifies the expected content contained within this class.
+ * 
+ * <pre>
+ * &lt;complexType name="Manage_Education_Sub_Business_Process_DataType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="Business_Sub_Process_Parameters" type="{urn:com.workday/bsvc}Business_Sub_Process_ParametersType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="Manage_Education_Data" type="{urn:com.workday/bsvc}Manage_Education_Data_for_RoleType" maxOccurs="unbounded" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
+ * </pre>
+ * 
+ * 
+ */
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "Manage_Education_Sub_Business_Process_DataType", propOrder = {
+    "businessSubProcessParameters",
+    "manageEducationData"
+})
+public class ManageEducationSubBusinessProcessDataType {
+
+    @XmlElement(name = "Business_Sub_Process_Parameters")
+    protected List<BusinessSubProcessParametersType> businessSubProcessParameters;
+    @XmlElement(name = "Manage_Education_Data")
+    protected List<ManageEducationDataForRoleType> manageEducationData;
+
+    /**
+     * Gets the value of the businessSubProcessParameters property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the businessSubProcessParameters property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getBusinessSubProcessParameters().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link BusinessSubProcessParametersType }
+     * 
+     * 
+     */
+    public List<BusinessSubProcessParametersType> getBusinessSubProcessParameters() {
+        if (businessSubProcessParameters == null) {
+            businessSubProcessParameters = new ArrayList<BusinessSubProcessParametersType>();
+        }
+        return this.businessSubProcessParameters;
+    }
+
+    /**
+     * Gets the value of the manageEducationData property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the manageEducationData property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getManageEducationData().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link ManageEducationDataForRoleType }
+     * 
+     * 
+     */
+    public List<ManageEducationDataForRoleType> getManageEducationData() {
+        if (manageEducationData == null) {
+            manageEducationData = new ArrayList<ManageEducationDataForRoleType>();
+        }
+        return this.manageEducationData;
+    }
+
+}
